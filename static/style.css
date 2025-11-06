@@ -1,0 +1,381 @@
+/* simple reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #222;
+    background: #fff;
+}
+
+/* layout helpers */
+.container {
+    width: 96%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* header/footer */
+.site-header {
+    background: #1daa52;
+    color: #fff;
+    padding: 14px 0;
+}
+
+.site-header .container h1 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.site-footer {
+    background: #f3f3f3;
+    text-align: center;
+    padding: 14px 0;
+    margin-top: 30px;
+}
+
+/* HERO / gallery layout */
+.hero {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    padding: 24px 0;
+}
+
+.gallery {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.main-image img {
+    width: 380px;
+    height: auto;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.side-images {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.side-images img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* product info */
+.product-info {
+    max-width: 420px;
+}
+
+.product-info h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.6rem;
+}
+
+.subtitle {
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+.price {
+    font-weight: 700;
+    color: #1daa52;
+    font-size: 1.2rem;
+    margin: 6px 0;
+}
+
+.small {
+    font-weight: 500;
+    color: #555;
+    font-size: 0.9rem;
+    margin-left: 8px;
+}
+
+.btn {
+    display: inline-block;
+    background: #1daa52;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 8px;
+}
+
+.btn:hover {
+    background: #13863c;
+}
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 10px;
+}
+
+/* details / price list */
+.details {
+    padding: 28px 0;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.price-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px auto 0;
+    display: inline-block;
+    text-align: left;
+}
+
+.price-list li {
+    background: #fff;
+    padding: 10px 14px;
+    margin: 6px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+/* order form */
+.order {
+    padding: 28px 0;
+    background: #f1fff1;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+input,
+textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    resize: vertical;
+}
+
+textarea {
+    min-height: 80px;
+}
+
+/* ---------- MODAL STYLES ---------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 10px;
+    max-width: 350px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content h3 {
+    color: #1daa52;
+    margin-bottom: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions .btn {
+    flex: 1;
+    background: #1daa52;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-actions .btn.cancel {
+    background: #888;
+}
+
+.modal-actions .btn:hover {
+    opacity: 0.9;
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* testimonials */
+.test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* whatsapp floating */
+.whatsapp-float {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 3000;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* thankyou page */
+.thankyou-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.thankyou-card {
+    text-align: center;
+    background: #fff;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.check {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+/* popup ad (small overlay) */
+.popup-ad {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    background: #fff;
+    padding: 12px 14px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    z-index: 4000;
+    display: none;
+    width: 260px;
+}
+
+.popup-ad h4 {
+    margin: 0 0 6px 0;
+    font-size: 1rem;
+}
+
+.popup-ad p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.popup-ad .close-ad {
+    margin-top: 8px;
+    display: inline-block;
+    background: #1daa52;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-image img {
+        width: 320px;
+    }
+
+    .side-images {
+        flex-direction: row;
+    }
+
+    .side-images img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width:480px) {
+    .main-image img {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .product-info {
+        text-align: center;
+    }
+
+    .side-images img {
+        width: 72px;
+        height: 72px;
+    }
+}

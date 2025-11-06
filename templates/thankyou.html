@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thank You!</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script>
+    // redirect back to home after 5 seconds
+    setTimeout(() => { window.location.href = "/"; }, 5000);
+  </script>
+</head>
+<body>
+  <main class="thankyou-page">
+    <div class="thankyou-card">
+      <div class="check">✅</div>
+      <h1>Thank you, {{ name }}!</h1>
+      <p>Your order has been received. We'll contact you shortly to confirm delivery.</p>
+      <p class="muted">You will be redirected to the homepage in 5 seconds.</p>
+      <a class="btn" href="/">Back to Home</a>
+    </div>
+  </main>
+</body>
+</html>

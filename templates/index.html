@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>OJ Evolve</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <h1>Glowhite Industries</h1>
+        </div>
+    </header>
+
+    <!-- HERO / GALLERY -->
+    <section class="hero container">
+        <div class="gallery">
+            <div class="main-image">
+                <!-- using external image URLs so the demo loads without local files -->
+                <img src="https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/77/5094814/1.jpg?7693"
+                    alt="Natural Detox Foot Pads" onclick="openModal(this.src)">
+            </div>
+
+            <div class="side-images">
+                <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=800&q=60&auto=format&fit=crop"
+                    alt="Side 1" onclick="openModal(this.src)">
+                <img src="https://ng.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/78/3865814/1.jpg?3983"
+                    alt="Side 2" onclick="openModal(this.src)">
+                <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=800&q=60&auto=format&fit=crop"
+                    alt="Side 3" onclick="openModal(this.src)">
+            </div>
+        </div>
+
+        <div class="product-info">
+            <h2>Natural Hair Cream</h2>
+            <p class="subtitle">Wake up feeling lighter and more refreshed — remove toxins naturally while you sleep.
+            </p>
+            <p class="price">₦9,500 <span class="small">per pack (10 pads)</span></p>
+            <p class="short-desc">Helps remove toxins overnight using 100% natural ingredients. Improves sleep and
+                energy with daily use.</p>
+            <a class="btn" href="#order">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImg" class="modal-content" alt="Enlarged image">
+    </div>
+
+    <!-- PRODUCT DETAILS + PRICE LIST -->
+    <section class="details container">
+        <h3>Product Description</h3>
+        <p>Our Ologo Pure Detox Foot Pads use bamboo vinegar, tourmaline and natural herbs to gently support the body's
+            detoxification while you sleep.</p>
+
+        <h4>Price List</h4>
+        <ul class="price-list">
+            <li>1 Pack (10 pads) — ₦9,500</li>
+            <li>2 Packs — ₦17,000</li>
+            <li>3 Packs — ₦24,000</li>
+        </ul>
+    </section>
+
+    <!-- ORDER FORM -->
+    <section id="order" class="order container">
+        <h3>Place Your Order</h3>
+        <form method="POST" action="/submit" id="orderForm">
+            <input type="text" name="name" placeholder="Full name" required>
+            <input type="tel" name="phone" placeholder="Phone number" required>
+            <textarea name="address" placeholder="Delivery address" rows="3" required></textarea>
+            <button type="submit" class="btn">Submit Order</button>
+        </form>
+    </section>
+
+    <!-- Testimonials (simple) -->
+    <section class="testimonials container">
+        <h3>What Our Customers Say</h3>
+        <div class="test-grid">
+            <blockquote>“I noticed better sleep after 3 nights. Highly recommend!” — Ada, Lagos</blockquote>
+            <blockquote>“Fast delivery and great results.” — Chidi, Abuja</blockquote>
+            <blockquote>“Quality product. I keep buying.” — Favour, Enugu</blockquote>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Confirm Your Order</h3>
+            <p id="confirmDetails"></p>
+            <div class="modal-actions">
+                <button id="confirmYes" class="btn">Yes, Submit</button>
+                <button id="confirmNo" class="btn cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/2349160824849" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <img src="{{ url_for('static', filename='images/whatsapp.png') }}" alt="WhatsApp">
+    </a>
+
+    <footer class="site-footer">
+        <div class="container">© 2025 OJ Evolve — All Rights Reserved.</div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
